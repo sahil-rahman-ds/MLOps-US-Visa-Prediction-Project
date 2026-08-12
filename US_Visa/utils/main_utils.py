@@ -101,7 +101,7 @@ def save_object(file_path: str, obj: object) -> None:
 def drop_columns(df: DataFrame, cols: list)-> DataFrame:
 
     """
-    drop the columns form a pandas DataFrame
+    drop the columns from a pandas DataFrame
     df: pandas DataFrame
     cols: list of columns to be dropped
     """
