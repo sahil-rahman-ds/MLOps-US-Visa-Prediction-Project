@@ -1,11 +1,10 @@
-from US_Visa.logger import logging
-from US_Visa.exception import USvisaException
-import sys
 
+# import os
+# from US_Visa.constants import MONGODB_URL_KEY
+# mongodb_url = os.getenv(MONGODB_URL_KEY)
+# print(mongodb_url)
 
-logging.info("Welcome to our custom logging")
+from US_Visa.pipline.training_pipeline import TrainPipeline
 
-try:
-    a=2/0
-except Exception as e:
-    raise USvisaException(e,sys)
+obj = TrainPipeline()
+obj.run_pipeline()

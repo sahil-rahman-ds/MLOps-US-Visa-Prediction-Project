@@ -31,3 +31,12 @@ python -m venv myenv
 ```bash
 pip install -r requirements.txt
 ```
+
+## Workflows
+
+1. update constants
+2. update entity
+3. update configuration for data ingestion
+4. data access
+5. components
+6. pipeline
