@@ -12,6 +12,8 @@ from US_Visa.constants import APP_HOST, APP_PORT
 from US_Visa.pipline.prediction_pipeline import USvisaData, USvisaClassifier
 from US_Visa.pipline.training_pipeline import TrainPipeline
 
+from US_Visa.configuration.mongo_db_connection import MongoDBClient
+
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -106,6 +108,28 @@ async def predictRouteClient(request: Request):
             status = "Visa-approved"
         else:
             status = "Visa Not-Approved"
+
+        prediction_data = {
+            "continent": form.continent,
+            "education_of_employee": form.education_of_employee,
+            "has_job_experience": form.has_job_experience,
+            "requires_job_training": form.requires_job_training,
+            "no_of_employees": form.no_of_employees,
+            "company_age": form.company_age,
+            "region_of_employment": form.region_of_employment,
+            "prevailing_wage": form.prevailing_wage,
+            "unit_of_wage": form.unit_of_wage,
+            "full_time_position": form.full_time_position,
+            "prediction": int(value),
+            "status": status
+        }
+
+        mongo_client = MongoDBClient()
+
+        mongo_client.insert_prediction(
+            data=prediction_data,
+            collection_name="predictions"
+        )
 
         return templates.TemplateResponse(
             "usvisa.html",

@@ -33,3 +33,19 @@ class MongoDBClient:
             logging.info("MongoDB connection succesfull")
         except Exception as e:
             raise USvisaException(e,sys)
+
+
+    def insert_prediction(self, data: dict, collection_name: str):
+        try:
+            collection = self.database[collection_name]
+
+            result = collection.insert_one(data)
+
+            logging.info(
+                f"Prediction inserted successfully. ID: {result.inserted_id}"
+            )
+
+            return result.inserted_id
+
+        except Exception as e:
+            raise USvisaException(e, sys) from e
