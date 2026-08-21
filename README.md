@@ -75,7 +75,7 @@ pip install -r requirements.txt
 
 ### 3.Create ECR repo to store/save docker image
 ```bash
-- Save the URI: 315865595366.dkr.ecr.ap-south-1.amazonaws.com/visarepo
+- Save the URI: 74545XXXXXX.dkr.ecr.ap-south-1.amazonaws.com/visa
 ```
 
 ### 4.Create EC2 Machine(Ubuntu)
@@ -109,3 +109,4 @@ setting>actions>runner>new self hosted runner> choose os> then run command one b
 - AWS_SECRET_ACCESS_KEY
 - AWS_DEFAULT_REGION
 - ECR_REPO
+- MONGODB_URL
