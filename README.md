@@ -80,7 +80,7 @@ pip install -r requirements.txt
 
 ### 4.Create EC2 Machine(Ubuntu)
 
-### 5. Open EC2 and Install Docker in EC2 machine
+### 5. Open EC2 and Install Docker in EC2 machine 
 ```bash
 #optinal
 
